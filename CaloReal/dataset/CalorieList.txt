@@ -1,0 +1,101 @@
+Apple pie,237
+Baby back ribs,250
+Baklava,100
+Beef carpaccio,369
+Beef tartare,552
+Beet salad,161
+Beignets,240
+Bibimbap,503
+Bread pudding,270
+Breakfast burrito,395
+Bruschetta,48
+Caesar salad,44
+Cannoli,374
+Caprese salad,220
+Carrot cake,118
+Ceviche,278
+Cheesecake,321
+Cheese plate,278
+Chicken curry,296
+Chicken quesadilla,269
+Chicken wings,520
+Chocolate cake,371
+Chocolate mousse,355
+Churros,237
+Clam chowder,134
+Club sandwich,591
+Crab cakes,160
+Creme brulee,210
+Croque madame,500
+Cup cakes,305
+Deviled eggs,200
+Donuts,450
+Dumplings,296
+Edamame,122
+Eggs benedict,728
+Escargots,90
+Falafel,333
+Filet mignon,267
+Fish and chips,840
+Foie gras,460
+French fries,310
+French onion soup,55
+French toast,237
+Fried calamari,154
+Fried rice,163
+Frozen yogurt,160
+Garlic bread,357
+Gnocchi,160
+Greek salad,102
+Grilled cheese sandwich,668
+Grilled salmon,360
+Guacamole,42
+Gyoza,186
+Hamburger,367
+Hot and sour soup,189
+Hot dog,150
+Huevos rancheros,431
+Hummus,160
+Ice cream,207
+Lasagna,135
+Lobster bisque,56
+Lobster roll sandwich,805
+Macaroni and cheese,310
+Macarons,102
+Miso soup,53
+Mussels,179
+Nachos,302
+Omelette,154
+Onion rings,481
+Oysters,197
+Pad thai,406
+Paella,341
+Pancakes,364
+Panna cotta,223
+Peking duck,421
+Pho,405
+Pizza,289
+Pork chop,236
+Poutine,1422
+Prime rib,290
+Pulled pork sandwich,417
+Ramen,397
+Ravioli,502
+Red velvet cake,305
+Risotto,604
+Samosa,262
+Sashimi,45
+Scallops,116
+Seaweed salad,137
+Shrimp and grits,206
+Spaghetti bolognese,354
+Spaghetti carbonara,370
+Spring rolls,154
+Steak,271
+Strawberry shortcake,321
+Sushi,250
+Tacos,361
+Takoyaki,426
+Tiramisu,496
+Tuna tartare,247
+Waffles,291
