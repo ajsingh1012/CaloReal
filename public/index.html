@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CaloReal</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="icon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="icon/favicon-16x16.png">
+    <link rel="manifest" href="icon/site.webmanifest">
+
+    <link rel="stylesheet" href="style.css">
+    <script src="dict.js"></script>
+
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/7.22.0/firebase-app.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/7.22.0/firebase-auth.js"></script>
+    <script defer src="/__/firebase/7.22.0/firebase-database.js"></script>
+    <script defer src="/__/firebase/7.22.0/firebase-messaging.js"></script>
+    <script defer src="/__/firebase/7.22.0/firebase-storage.js"></script>
+    <script defer src="/__/firebase/7.22.0/firebase-analytics.js"></script>
+    <script defer src="/__/firebase/7.22.0/firebase-remote-config.js"></script>
+    <script defer src="/__/firebase/7.22.0/firebase-performance.js"></script>
+    <!-- initialize the SDK after all desired features are loaded -->
+    <script defer src="/__/firebase/init.js"></script>
+  </head>
+  <body>
+    <script>
+      function work(s) {
+        document.getElementById("makeText").innerHTML = getCalories(s);
+      }
+    </script>
+
+    <div class="header">
+      <h1 style="font-size:64px"><img src="icon/favicon.ico" alt="Website logo"> CaloReal.</h1>
+      <p style="font-size:20px">How many calories are you eating today?</p>
+    </div>
+    <form action="javascript:work(food.value)" method="post">
+        Enter food name:<br>
+        <input type="file"><br>
+        <input type="text" id="food" name="foodname"><br>
+        <input type="submit" value="Submit"/>
+    </form>
+    <p id="makeText"></p>
+
+    <footer>
+      <a href="copyright.html">Copyright Information</a>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,12 @@
+body {
+  background-color: #D8FFDD;
+  font-family: 'NotoSans';
+  padding: 0px;
+}
+
+.header {
+  padding: 20px 60px 20px 60px;
+  text-align: left;
+  background: ForestGreen;
+  color: white;
+}
