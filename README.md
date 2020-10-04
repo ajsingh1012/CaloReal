@@ -12,3 +12,7 @@ The website was designed with HTML and JavaScript, and implemented features like
 The machine learning portion was designed to take in an image input, and return a value of type string (this would be entered into the JavaScript database, which would bring back a value for the calories of the portion).
 
 The database portion was designed by taking a database of calories per portion for various foods, and then translated into a JavaScript dictionary. A JavaScript method in the dict.js file would return the value of a certain food type.
+
+# Machine Learning
+The model is a pre-trained Inception V3 CNN model from Google, trained the Food-101 database by EHF Zurich. The weights were collected and compiled into a React app from:
+[https://github.com/stratospark/food-101-keras]
