@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import ProgressBar from 'react-bootstrap/ProgressBar';
 import './App.css';
 import getCalories from './dict.js';
+
 
 const ndarray =require('ndarray');
 const ops =require('ndarray-ops');
@@ -71,7 +73,7 @@ class App extends Component {
       url: 'https://support.rebrandly.com/hc/article_attachments/360020801793/rebrandly_url_shortener_010.png'
     };
   }
-  
+
 
   loadModel = () => {
     console.log('Loading Model');
@@ -224,7 +226,7 @@ class App extends Component {
       console.log(preds);
       const topK = food101topK(preds);
       console.log(topK);
-      
+
       topFoodClassification = Object.values(topK)[0].name;
       this.setState({
         topK,
@@ -265,7 +267,10 @@ class App extends Component {
         <div className='init'>
         { !modelLoaded && !modelLoading ? <button onClick={this.loadModel}>Hit me :)</button> : ''}
         { !modelLoaded && modelLoading ?
-          <p className='loading'>Beep Boop; Loading: {loadingPercent}%</p>
+          <div>
+            <p className='loading'>Beep Boop; Loading: {loadingPercent}%</p>
+            <ProgressBar animated striped variant="success" now={loadingPercent} />
+          </div>
           : ''}
         { modelLoaded && imageLoading ?
           <p className='loading'>LOADING IMAGE</p>
@@ -274,7 +279,10 @@ class App extends Component {
           <p className='error'>ERROR LOADING IMAGE.<br/>TRY DIFFERENT URL</p>
           : ''}
         { modelLoaded && modelRunning ?
-          <p className='loading'>CLASSIFYING: {classifyPercent}%</p>
+          <div>
+            <p className='loading'>CLASSIFYING: {classifyPercent}%</p>
+            <ProgressBar animated striped variant="success" now={classifyPercent} />
+          </div>
           : ''}
         </div>
         <div className='interactive'>
