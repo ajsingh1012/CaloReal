@@ -15,6 +15,9 @@ body {
   color: white;
 }
 
+.title {
+  margin-bottom: 20px;;
+}
 html {
   height: 100%;
   box-sizing: border-box;
@@ -30,7 +33,7 @@ html {
   bottom: 0;
   left: 0;
   padding: 1rem;
-  background-color: #efefef;
+  background-color: #D8FFDD;
   text-align: center;
 }
 
