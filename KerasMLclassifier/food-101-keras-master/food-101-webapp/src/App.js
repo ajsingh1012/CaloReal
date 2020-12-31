@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import getCalories from './dict.js';
 
 const ndarray =require('ndarray');
 const ops =require('ndarray-ops');
@@ -8,7 +9,7 @@ const { food101topK } = require('./utils');
 
 const loadImage = window.loadImage;
 
-
+let topFoodClassification = '';
 
 const mapProb = (prob) => {
   if (prob * 100 < 2) {
@@ -70,6 +71,7 @@ class App extends Component {
       url: 'https://support.rebrandly.com/hc/article_attachments/360020801793/rebrandly_url_shortener_010.png'
     };
   }
+  
 
   loadModel = () => {
     console.log('Loading Model');
@@ -222,7 +224,8 @@ class App extends Component {
       console.log(preds);
       const topK = food101topK(preds);
       console.log(topK);
-      console.log(Object.values(topK)[0].name);
+      
+      topFoodClassification = Object.values(topK)[0].name;
       this.setState({
         topK,
         modelRunning: false
@@ -252,6 +255,7 @@ class App extends Component {
     } = this.state;
     return (
       <div className="App">
+
         <h1>CaloReal</h1>
         { !modelLoaded ?
         <p className='intro'>
@@ -284,6 +288,10 @@ class App extends Component {
           <canvas id='input-canvas' width='299' height='299'/>
           { topK ? <Predictions topK={topK}/> : ''}
         </div>
+        <div>
+          {modelLoaded && !modelRunning && !imageLoading ? getCalories(topFoodClassification.toString()) : ''}
+        </div>
+
       </div>
     );
   }
