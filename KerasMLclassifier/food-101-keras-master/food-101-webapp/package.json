@@ -2,7 +2,7 @@
   "name": "food-101-webapp",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://stratospark.com/demos/food-101",
+  "homepage": "https://after-stratospark.web.app",
   "devDependencies": {
     "react-scripts": "0.8.5"
   },
