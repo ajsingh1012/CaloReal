@@ -103,7 +103,10 @@ dict["Tuna tartare"] = 247;
 dict["Waffles"] = 291;
 
 function getCalories(s) {
-	return s + " has " + dict[s] + " calories";
+	//t = s.toLowerCase();
+	//t.charAt(0).toUpperCase();
+	var t = s.charAt(0).toUpperCase() + s.slice(1).toLowerCase();
+	return t + " has " + dict[t] + " calories.";
 }
 
 //function input(str) {

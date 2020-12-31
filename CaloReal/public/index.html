@@ -29,24 +29,51 @@
   <body>
     <script>
       function work(s) {
-        document.getElementById("makeText").innerHTML = getCalories(s);
+        var div1 = document.createElement("div");
+        var div2 = document.createElement("div");
+        var para = document.createElement("p");
+        var node = document.createTextNode(getCalories(s));
+        para.appendChild(node);
+        div2.appendChild(para);
+        div1.appendChild(div2);
+        div1.setAttribute('class', 'card');
+        div2.setAttribute('class', 'container');
+
+        //document.getElementById("div1").className = "card";
+        //document.getElementById("div2").className = "container";
+        var element = document.getElementById("makeText");
+
+        var x = document.getElementById("makeText").childNodes.length;
+        if(x == 0) {
+          element.appendChild(div1);
+        }
+        else {
+          element.removeChild(element.childNodes[0]);
+          element.appendChild(div1);
+        }
       }
     </script>
 
-    <div class="header">
-      <h1 style="font-size:64px"><img src="icon/favicon.ico" alt="Website logo"> CaloReal.</h1>
-      <p style="font-size:20px">How many calories are you eating today?</p>
+    <div id="page-container">
+      <div id="content-wrap">
+        <div class="header">
+          <h1 style="font-size:64px"><img src="icon/favicon.ico" alt="Website logo"> CaloReal.</h1>
+          <p style="font-size:20px">How many calories are you eating today?</p>
+        </div>
+        <div id="content">
+          <form action="javascript:work(food.value)" method="post">
+              Enter food name:&nbsp;
+              <input type="text" id="food" name="foodname">&nbsp;
+              <input type="submit" value="Submit"/>
+          </form>
+          <br><br>
+        <div id="makeText"></div>
+        <br><br>
+        <iframe src="https://caloreal-after-stratospark.web.app/" title="Food web app" height="800" width="100%"></iframe>
+      </div>
     </div>
-    <form action="javascript:work(food.value)" method="post">
-        Enter food name:<br>
-        <input type="file"><br>
-        <input type="text" id="food" name="foodname"><br>
-        <input type="submit" value="Submit"/>
-    </form>
-    <p id="makeText"></p>
-
-    <footer>
+    <div class="footer">
       <a href="copyright.html">Copyright Information</a>
-    </footer>
+    </div>
   </body>
 </html>
