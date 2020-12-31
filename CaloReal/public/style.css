@@ -53,4 +53,47 @@ html {
 /* Add some padding inside the card container */
 .container {
   padding: 2px 16px;
+  display:flex;
+  justify-content:center;
+}
+
+.container-food-form {
+  display:flex;
+  flex-direction: row;
+  justify-content:center;
+}
+
+.food-form {
+  display: flex;
+  flex-direction: column;
+  color: black;
+  width:300px;
+  font: 380 14.3333px Verdana;
+}
+
+.food-form-text {
+  margin: 0px 0px 0px 0px;
+  margin-left: 18%;
+}
+
+.enter-food{
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  padding: 10px 20px;
+  font: 15px Arial;
+  background: #ffffff;
+  margin: 15px 0px 15px 0px;
+  color: black;
+  border: 0px;
+  border-radius: 30px;
+}
+
+.submit-food{
+  padding: 10px;
+  margin-bottom: 20px;
+  border: none;
+  background-color: #2a7f1f;
+  color: #fff;
+  font-weight: 550;
+  border-radius: 5px;
+  width: 100%;
 }

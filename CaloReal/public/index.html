@@ -61,16 +61,19 @@
           <p style="font-size:20px">How many calories are you eating today?</p>
         </div>
         <div id="content">
-          <form action="javascript:work(food.value)" method="post">
-              Enter food name:&nbsp;
-              <input type="text" id="food" name="foodname">&nbsp;
-              <input type="submit" value="Submit"/>
-          </form>
-          <br><br>
-        <div id="makeText"></div>
+          </div>
         <br><br>
-        <iframe src="https://caloreal-after-stratospark.web.app/" title="Food web app" height="800" width="100%"></iframe>
+        <iframe src="https://caloreal-after-stratospark.web.app/" title="Food web app" height="600" width="100%" style="border:none;"></iframe>
+        <div class="container-food-form">
+          <form class="food-form" action="javascript:work(food.value)" method="post">
+              <p class="food-form-text">Find the number of calories! </p>
+              <input type="text" id="food" name="foodname" class="enter-food" placeholder="Enter food" onfocus="this.placeholder = ''"
+              onblur="this.placeholder = 'Enter food'">
+              <input type="submit" value="Submit" class="submit-food"/>
+          </form>
+          <div></div>
       </div>
+      <div id="makeText"></div>
     </div>
     <div class="footer">
       <a href="copyright.html">Copyright Information</a>
