@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import ProgressBar from 'react-bootstrap/ProgressBar';
 import './App.css';
 import getCalories from './dict.js';
+import { default as importedlist } from './loading_messages.js';
 
 
 const ndarray =require('ndarray');
@@ -12,6 +13,8 @@ const { food101topK } = require('./utils');
 const loadImage = window.loadImage;
 
 let topFoodClassification = '';
+
+let counter = 0, counter1 = 0;
 
 const mapProb = (prob) => {
   if (prob * 100 < 2) {
@@ -75,6 +78,7 @@ class App extends Component {
   }
 
 
+
   loadModel = () => {
     console.log('Loading Model');
     const model = new window.KerasJS.Model({
@@ -90,9 +94,21 @@ class App extends Component {
     let interval = setInterval(() => {
       const percent = model.getLoadingProgress();
       console.log('Progress', percent, model.xhrProgress);
-      this.setState({
-        loadingPercent: percent
-      });
+      counter ++;
+      if (counter % 10 === 0) {
+        let t = this.getTime();
+        let saying = this.getSaying(t);
+        this.setState({
+          loadingPercent: percent,
+          //time: t,
+          greeting: saying
+        });
+      } else {
+        this.setState({
+          loadingPercent: percent//,
+          //time: t,
+        });
+      }
     }, 100);
 
     const waitTillReady = model.ready();
@@ -212,11 +228,24 @@ class App extends Component {
     const predPromise = this.state.model.predict(inputData);
     console.log(predPromise);
     const totalLayers = Object.keys(this.state.model.modelDAG).length
+
+
     let interval = setInterval(() => {
+
       const completedLayers = this.state.model.layersWithResults.length;
-      this.setState({
-        classifyPercent: ((completedLayers / totalLayers) * 100).toFixed(2)
-      });
+      counter1++;
+      if (counter1 % 20 === 0) {
+        let t = this.getTime();
+        let saying = this.getSaying(t);
+        this.setState({
+          classifyPercent: ((completedLayers / totalLayers) * 100).toFixed(2),
+          greeting: saying
+        });
+      } else {
+        this.setState({
+          classifyPercent: ((completedLayers / totalLayers) * 100).toFixed(2)
+        });
+      }
     }, 50);
 
     predPromise.then(outputData => {
@@ -244,6 +273,28 @@ class App extends Component {
     this.loadImageToCanvas(newUrl);
   }
 
+  getInitialState () {
+  	return {time: 0}
+  }
+  componentDidMount () {
+  	this.loadInterval = setInterval(this.getTime, 1000);
+  }
+  getTime () {
+    let t, d, h, m, s;
+
+    d = new Date();
+    h = d.getHours();
+    m = d.getMinutes();
+    s = h*60*60 + m*60 + d.getSeconds();
+    t = s;
+    return t - (t%2);
+  }
+  getSaying (time) {
+    let len = importedlist.length, greeting;
+    greeting = importedlist[time % len];
+    return greeting;
+  }
+
   render() {
     const {
       loadingPercent,
@@ -253,7 +304,8 @@ class App extends Component {
       imageLoading,
       imageLoadingError,
       classifyPercent,
-      topK
+      topK,
+      greeting
     } = this.state;
     return (
       <div className="App">
@@ -267,10 +319,11 @@ class App extends Component {
         <div className='init'>
         { !modelLoaded && !modelLoading ? <button onClick={this.loadModel}>Hit me :)</button> : ''}
         { !modelLoaded && modelLoading ?
-          <div>
-            <p className='loading'>Beep Boop; Loading: {loadingPercent}%</p>
-            <ProgressBar animated striped variant="success" now={loadingPercent} />
-          </div>
+            <Fragment>
+              <p className='loading'>Beep Boop; Loading: {loadingPercent}%</p>
+              <p id="progress">{greeting}</p>
+              <ProgressBar animated striped variant="success" now={loadingPercent} />
+            </Fragment>
           : ''}
         { modelLoaded && imageLoading ?
           <p className='loading'>LOADING IMAGE</p>
@@ -281,6 +334,7 @@ class App extends Component {
         { modelLoaded && modelRunning ?
           <div>
             <p className='loading'>CLASSIFYING: {classifyPercent}%</p>
+            <p id="progress">{greeting}</p>
             <ProgressBar animated striped variant="success" now={classifyPercent} />
           </div>
           : ''}
